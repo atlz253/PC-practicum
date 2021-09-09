@@ -3,15 +3,15 @@
 
 #define N 100
 
+char *input();
+void print(char *str, char *msg);
+
 int main()
 {
     int i = 0, l = 0, r = 0;
     char
-        *str = (char *)malloc(sizeof(char) * N),
+        *str = input(),
         *rslt = (char *)malloc(sizeof(char) * N);
-
-    printf("Введите строку: ");
-    fgets(str, N, stdin);
 
     while (1)
     {
@@ -35,11 +35,24 @@ int main()
     }
     rslt[++r] = '\0';
 
-    printf("Исходная строка: ");
-    puts(str);
-
-    printf("Результат: ");
-    puts(rslt);
+    print(str, "Исходная строка: ");
+    print(rslt, "Результат: ");
 
     return 0;
+}
+
+char *input()
+{
+    char *str = (char *)malloc(sizeof(char) * N);
+
+    printf("Введите строку: ");
+    fgets(str, N, stdin);
+
+    return str;
+}
+
+void print(char *str, char *msg)
+{
+    printf(msg);
+    puts(str);
 }
