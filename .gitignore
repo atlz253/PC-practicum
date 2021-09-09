@@ -1,1 +1,11 @@
+*
+!*/
+!*.*
+
 .directory
+settings.json
+
+*.i
+*.o
+*.s
+*.out
