@@ -1,0 +1,1 @@
+void invert(int *arr, int n);

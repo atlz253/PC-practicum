@@ -1,0 +1,1 @@
+int *insert(int *arr, int *n);
