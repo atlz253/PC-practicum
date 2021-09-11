@@ -12,7 +12,11 @@ lab1_2:
 
 lab1_2_lib: lab1_lib
 	gcc -c -o 1/2/second.o 1/2/second.c
-	gcc -o lab1_2 1/2/second.o -L 1/2/liblab1.a
+	gcc -o lab1_2 1/2/second.o -L1/2 -llab1
+
+lab1_3_lib: lab1_lib
+	gcc -c -o 1/2/third.o 1/2/third.c
+	gcc -o lab1_3 1/2/third.o -L1/2 -llab1
 
 lab1_3:
 	gcc -c -o 1/2/insert.o 1/2/insert.c
@@ -38,4 +42,3 @@ clean1:
 	rm -f 1/2/*.a
 
 clean: clean1
-	
