@@ -38,6 +38,9 @@ int main()
     print(str, "Исходная строка: ");
     print(rslt, "Результат: ");
 
+    free(str);
+    free(rslt);
+
     return 0;
 }
 

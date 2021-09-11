@@ -13,5 +13,7 @@ int main()
     
     print(num);
 
+    free(str);
+
     return 0;
 }
