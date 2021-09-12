@@ -30,6 +30,31 @@ lab1_lib:
 	gcc -c -w -o 1/2/io.o 1/2/io.c
 	ar crs 1/2/liblab1.a 1/2/invert.o 1/2/insert.o 1/2/io.o
 
+lab2_1:
+	gcc -g -o lab2_1 2/1/main.c
+
+lab2_2:
+	gcc -g -w -o lab2_2 2/2/main.c
+
+lab2_3_lib:
+	gcc -c -o 2/3/io.o 2/3/io.c
+	ar crs 2/3/liblab2.a 2/3/io.o
+
+lab2_3: lab2_3_lib
+	gcc -g -o lab2_3 2/3/main.c -L2/3 -llab2
+
+lab3_lmatrix:
+	gcc -c -w -o 3/matrix.o 3/matrix.c
+	gcc -shared -o libmatrix.so 3/matrix.o
+
+lab3_larray:
+	gcc -c -w -o 3/array.o 3/array.c
+	gcc -shared -o libarray.so 3/array.o
+
+lab3: lab3_lmatrix lab3_larray
+	gcc -c -w -fPIC -o 3/main.o 3/main.c
+	gcc -o lab3 3/main.o -ldl
+
 clean1:
 	rm -f lab1_1
 	rm -f lab1_2
@@ -41,4 +66,19 @@ clean1:
 	rm -f 1/2/*.o
 	rm -f 1/2/*.a
 
-clean: clean1
+clean2:
+	rm -f lab2_1
+	rm -f lab2_2
+	rm -f lab2_3
+
+	rm -f 2/3/io.o
+	rm -f 2/3/liblab2.a
+
+clean3:
+	rm -f lab3
+	rm -f libarray.so
+	rm -f libmatrix.so
+
+	rm -f 3/*.o
+
+clean: clean1 clean2 clean3
