@@ -51,9 +51,13 @@ lab3_larray:
 	gcc -c -w -o 3/array.o 3/array.c
 	gcc -shared -o libarray.so 3/array.o
 
-lab3: lab3_lmatrix lab3_larray
+lab3_linux: lab3_lmatrix lab3_larray
 	gcc -c -w -fPIC -o 3/main.o 3/main.c
 	gcc -o lab3 3/main.o -ldl
+
+lab3_windows:
+	gcc -c -w -fPIC -o 3/main_win.o 3/main_win.c
+	gcc -o lab3 3/main_win.o
 
 clean1:
 	rm -f lab1_1
