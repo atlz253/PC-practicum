@@ -4,7 +4,7 @@
 #define N 100
 
 char *input();
-void print(char *str, char *msg);
+int print(char *str, char *msg);
 
 int main()
 {
@@ -54,8 +54,10 @@ char *input()
     return str;
 }
 
-void print(char *str, char *msg)
+int print(char *str, char *msg)
 {
     printf(msg);
     puts(str);
+
+    return 0;
 }
