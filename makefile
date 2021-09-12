@@ -59,6 +59,8 @@ lab3_windows:
 	gcc -c -w -fPIC -o 3/main_win.o 3/main_win.c
 	gcc -o lab3 3/main_win.o
 
+all: lab1_1 lab1_2 lab1_3 lab2_1 lab2_2 lab2_3 lab3_linux
+
 clean1:
 	rm -f lab1_1
 	rm -f lab1_2
