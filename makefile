@@ -55,7 +55,7 @@ lab3_linux: lab3_lmatrix lab3_larray
 	gcc -c -w -fPIC -o 3/main.o 3/main.c
 	gcc -o lab3 3/main.o -ldl
 
-lab3_windows:
+lab3_windows: lab3_lmatrix lab3_larray
 	gcc -c -w -fPIC -o 3/main_win.o 3/main_win.c
 	gcc -o lab3 3/main_win.o
 
