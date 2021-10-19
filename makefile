@@ -43,19 +43,35 @@ lab2_3_lib:
 lab2_3: lab2_3_lib
 	gcc -g -o lab2_3 2/3/main.c -L2/3 -llab2
 
-lab3_lmatrix:
+lab3_lmatrix_random:
 	gcc -c -w -o 3/matrix.o 3/matrix.c
-	gcc -shared -o libmatrix.so 3/matrix.o
+	gcc -c -w -o 3/randmatrix.o 3/randmatrix.c
+	gcc -shared -o libmatrix.so 3/matrix.o 3/randmatrix.o
 
-lab3_larray:
+lab3_lmatrix_input:
+	gcc -c -w -o 3/matrix.o 3/matrix.c
+	gcc -c -w -o 3/inputmatrix.o 3/inputmatrix.c
+	gcc -shared -o libmatrix.so 3/matrix.o 3/inputmatrix.o
+
+lab3_larray_random:
 	gcc -c -w -o 3/array.o 3/array.c
-	gcc -shared -o libarray.so 3/array.o
+	gcc -c -w -o 3/randarr.o 3/randarr.c
+	gcc -shared -o libarray.so 3/array.o 3/randarr.o
 
-lab3_linux: lab3_lmatrix lab3_larray
+lab3_larray_input:
+	gcc -c -w -o 3/array.o 3/array.c
+	gcc -c -w -o 3/inputarr.o 3/inputarr.c
+	gcc -shared -o libarray.so 3/array.o 3/inputarr.o
+
+lab3_linux: lab3_lmatrix_random lab3_larray_random
 	gcc -c -w -fPIC -o 3/main.o 3/main.c
 	gcc -o lab3 3/main.o -ldl
 
-lab3_windows: lab3_lmatrix lab3_larray
+lab3_windows: lab3_lmatrix_random lab3_larray_random
+	gcc -c -w -fPIC -o 3/main_win.o 3/main_win.c
+	gcc -o lab3 3/main_win.o
+
+lab3_windows_input: lab3_lmatrix_input lab3_larray_input
 	gcc -c -w -fPIC -o 3/main_win.o 3/main_win.c
 	gcc -o lab3 3/main_win.o
 
